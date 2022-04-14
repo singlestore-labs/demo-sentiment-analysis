@@ -1,0 +1,12 @@
+chart_studio
+graphviz
+jupyterlab
+mysqlclient
+numpy
+pandas
+parsimonious
+plotly
+pymysql
+sqlalchemy
+wasmtime
+statsmodels

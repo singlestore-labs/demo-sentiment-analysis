@@ -1,8 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Tours",
   "description": "Configuration for user-defined tours. This schema is generated from https://github.com/gilbarbara/react-joyride/blob/master/types/index.d.ts",
   "jupyter.lab.setting-icon-label": "Tours",
-  "title": "Tours",
+  "jupyter.lab.setting-icon": "jupyterlab-tour:user-tour",
+  "jupyter.lab.toolbars": {
+    "Notebook": [{ "name": "jupyterlab-tour", "rank": 60 }]
+  },
   "type": "object",
   "properties": {
     "tours": {
@@ -26,6 +30,11 @@
             "description": "Whether to add a Help Menu item with the label to launch the tour",
             "default": true
           },
+          "icon": {
+            "type": "string",
+            "description": "The name of an already-registered LabIcon to display next to this tour",
+            "default": "jupyterlab-tour:user-tour"
+          },
           "steps": {
             "description": "The definition of the steps of a tour",
             "type": "array",
@@ -36,6 +45,12 @@
           "options": {
             "description": "Other options for the tour",
             "$ref": "#/definitions/Props"
+          },
+          "version": {
+            "type": "integer",
+            "title": "The tour version",
+            "description": "The tour version (prefer calendar versioning YYYYMMDD) to determine if an user should see it again or not.",
+            "minimum": 0
           },
           "translation": {
             "description": "Translation domain containing strings for this tour",
@@ -407,14 +422,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "action",
-        "controlled",
-        "index",
-        "lifecycle",
-        "size",
-        "status"
-      ],
+      "required": ["action", "controlled", "index", "lifecycle", "size", "status"],
       "type": "object"
     },
     "Styles": {
